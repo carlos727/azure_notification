@@ -1,4 +1,3 @@
 # azure_notification
 
-TODO: Enter the cookbook description here.
-
+Cookbook to notify through files send to Azure Storage.

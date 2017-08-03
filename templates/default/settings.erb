@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<appSettings>
+  <!--Cierra la aplicación al finalizar el proceso-->
+  <add key="AutoClose" value="true"/>
+
+  <!--Cadena de conexión al "Storage Account", hace referencia a "evachef" en la cuenta de azure-->
+  <add key="evachefazure" value="DefaultEndpointsProtocol=https;AccountName=evachef;AccountKey=9TKtp9Sj/uhxvGQyznZsjKSefgQfjLCb/q0G1a6qj/lGbiUnWT4YslmAJyTqUPADecinqUT49/bZbWfJnaQ+Bg=="/>
+
+  <!--Ruta local (Equipo local) donde se buscarán los archivos.-->
+  <add key="PathLogs" value="C:\chef"/>
+
+  <!--Patrón de búsqueda para los nombred de archivos dentro de la ruta [PathLogs]-->
+  <add key="PatternFileName" value="job.txt"/>
+
+  <!--Si es verdadero, aplica al nombre de los archivos comprimidos el prefijo [PrefijoLog]-->
+  <add key="ModificaNombreLog" value="true"/>
+
+  <!--Prefijo que se añade antes del nombre original del archivo a comprimir. (No incluir caracteres especiales)-->
+  <add key="PrefijoLog" value="<%= @node_name %>-"/>
+
+  <!--El nombre del archivo .zip generado-->
+  <add key="ZipName" value="<%= @node_name %>"/>
+
+  <!--El nombre del contenedor dentro del Storage Account parametrizado [evachefazure]-->
+  <add key="AzureContainer" value="logs"/>
+
+  <!--Carpeta dentro del contenedor de azure [AzureContainer] donde se envían los .zip-->
+  <add key="AzureFolder" value="<%= @azure_folder %>"/>
+
+  <!--Número de días desde la fecha actual hacia atrás, donde se buscarán los archivos.-->
+  <add key="Days" value="0"/>
+
+  <!--Si es [true] busca los archivos desde la fecha actual hasta la fecha actual - [Days], si no, la fecha que coincida con el valor de [Days]-->
+  <add key="RangeDate" value="false"/>
+</appSettings>
